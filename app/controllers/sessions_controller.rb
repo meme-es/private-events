@@ -8,8 +8,8 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_url, notice: 'Logged in!'
     else
-      flash.now[:alert] = 'Username is invalid'
-      render :signup
+      # flash.now[:alert] = 'Username is invalid'
+      redirect_to login_url, alert: 'Username is invalid'
     end
   end
 
