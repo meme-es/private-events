@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       redirect_to root_url, notice: 'Logged in!'
     else
       flash.now[:alert] = 'Username is invalid'
-      render 'new'
+      render :signup
     end
   end
 

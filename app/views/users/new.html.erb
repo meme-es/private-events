@@ -1,0 +1,19 @@
+<h1>Sign Up</h1>
+
+<%= form_tag users_path do |form| %>
+  <div class='field'>
+    <%= label_tag :username %>
+    <%= text_field_tag :username %>
+  </div>
+  <div class='field'>
+    <%= label_tag :fullname %>
+    <%= text_field_tag :fullname %>
+  </div>
+  <div class='field'>
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
+  </div>
+  <div class='actions'>
+    <%= submit_tag 'Sign up' %>
+  </div>
+<% end %>
