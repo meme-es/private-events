@@ -5,10 +5,7 @@
   <%= link_to 'Sign Up', signup_path %> or 
   <%= link_to 'Log In', login_path %>
 <% end %>
-<p id=”notice”><%= notice %></p>
-
 <h1>Events</h1>
-
 <table>
   <thead>
     <tr>
@@ -20,7 +17,6 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @events.each do |event| %>
       <tr>
@@ -36,7 +32,5 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
-
 <%= link_to 'New Event', new_event_path %>
