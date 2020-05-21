@@ -1,5 +1,10 @@
 class EventsController < ApplicationController
+  before_action :user_is_logged_in
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+
+  def user_is_logged_in
+    redirect_to login_path unless session[:user_id]
+  end
 
   # GET /events
   # GET /events.json
@@ -62,13 +67,14 @@ class EventsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def event_params
-      params.require(:event).permit(:title, :description, :date, :location, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_event
+    @event = Event.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def event_params
+    params.require(:event).permit(:title, :description, :date, :location, :user_id)
+  end
 end
