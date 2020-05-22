@@ -1,13 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PrivateEvents</title>
+    <title>Private Events</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+
+    <% if current_user %>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+          <a class="navbar-brand" href="/">Events</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <p class="navbar-text float-right">
+                  Logged in as <strong><%= current_user.fullname %></strong>.
+                  <%= link_to 'My events', user_path(session[:user_id]), :class => 'navbar-link' %>
+                  <%= link_to 'Log Out', logout_path, :class => 'navbar-link' %>
+              </p>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <% end %>
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>

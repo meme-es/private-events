@@ -22,7 +22,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @event.user %>
+  <%= @event.creator.fullname %>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
