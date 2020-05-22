@@ -17,6 +17,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def attendedev
+    @events = User.find(session[:user_id]).attended_events
+  end
+
   def show
     @user = User.find(session[:user_id])
     @events = @user.events

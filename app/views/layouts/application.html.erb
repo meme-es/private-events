@@ -9,7 +9,6 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-
     <% if current_user %>
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
@@ -20,9 +19,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               <p class="navbar-text float-right">
-                  Logged in as <strong><%= current_user.fullname %></strong>.
-                  <%= link_to 'My events', user_path(session[:user_id]), :class => 'navbar-link' %>
-                  <%= link_to 'Log Out', logout_path, :class => 'navbar-link' %>
+                Logged in as <strong><%= current_user.fullname %></strong>.
+                <%= link_to 'My events', user_path(session[:user_id]), :class => 'navbar-link' %>
+                <%= link_to 'My attended events', attended_events_url, :class => 'navbar-link' %>
+                <%= link_to 'Log Out', logout_path, :class => 'navbar-link' %>
               </p>
             </ul>
           </div>
