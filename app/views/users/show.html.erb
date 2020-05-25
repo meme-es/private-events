@@ -1,34 +1,14 @@
 <h2>My Events</h2>
-
 <% unless @events.empty? %>
-  <div id="accordion">
-    <% @events.each do |event| %>
-      <div class="card">
-        <div class="card-header">
-          <a class="collapsed card-link text-black-50" data-toggle="collapse" href="#collapse<%= event.id %>">
-            <%= event.title %>
-          </a>
-        </div>
-        <div id="collapse<%= event.id %>" class="collapse" data-parent="#accordion">
-          <div class="card-body">
-            <p><b>Description:</b> <%= event.description %><br/>
-            <b>Date:</b> <%= event.date %><br/>
-            <b>Location:</b> <%= event.location %></p>
-
-            <div class='float-right pb-3'>
-              <%= link_to 'Show', event, class: 'btn btn-secondary' %>
-              <%= link_to 'Edit', edit_event_path(event), class: 'btn btn-secondary' %>
-              <%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-secondary' %>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
+  <br>
+  <h5>Past Events</h5>
+  <%= render "myevents", events: @events.past%>
+  <br>
+  <h5>Upcoming Events</h5>
+  <%= render "myevents", events: @events.upcoming%>
 <% else %>
   <p>You have not created any event yet, add some.</p>
 <% end %>
-
 <div class='pt-3'>
   <%= link_to 'New Event', new_event_path, class: 'btn btn-success' %>
 </div>
