@@ -4,38 +4,47 @@
     <title>Private Events</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
     <% if current_user %>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-          <a class="navbar-brand" href="/">Events</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <p class="navbar-text float-right">
-                Logged in as <strong><%= current_user.fullname %></strong>.
-                <%= link_to 'My events', user_path(session[:user_id]), :class => 'navbar-link' %>
-                <%= link_to 'My attended events', attended_events_url, :class => 'navbar-link' %>
-                <%= link_to 'Log Out', logout_path, :class => 'navbar-link' %>
-              </p>
-            </ul>
-          </div>
+      <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <a class="navbar-brand" href="/">Events</a>
+        <span class="navbar-text">
+          Logged in as <strong><%= current_user.fullname %></strong>
+        </span>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse float-right" id="collapsibleNavbar">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <%= link_to 'All events', root_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'My events', user_path(session[:user_id]), class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'My attending events', attended_events_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Log Out', logout_path, class: 'nav-link' %>
+            </li>
+          </ul>
         </div>
       </nav>
     <% end %>
+
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>
     <% if alert %>
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
-    <div class="container">
+    <div class="container pt-3">
       <%= yield %>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

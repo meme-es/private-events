@@ -11,27 +11,38 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="row">
+    <div class='col-md-5'>
+      <%= form.label :title, 'Title:' %>
+      <%= form.text_field :title, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="row">
+    <div class='col-md-5'>
+      <%= form.label :description, 'Description:' %>
+      <%= form.text_area :description, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.datetime_select :date %>
+  <div class="row pt-1">
+    <div class='col-md-10'>
+      <%= form.label :date, 'Date:' %> <br/>
+      <%= form.datetime_select :date %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
+  <div class="row">
+    <div class='col-md-5'>
+      <%= form.label :location, 'Location:' %>
+      <%= form.text_field :location, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="row pt-4">
+    <div class='col'>
+      <%= form.submit 'Create', class: 'btn btn-success' %>
+      <%= link_to 'Cancel', root_path, class: 'btn btn-danger' %>
+    </div>
   </div>
 <% end %>
