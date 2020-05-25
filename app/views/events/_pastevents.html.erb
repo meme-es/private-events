@@ -1,4 +1,4 @@
-<div id="accordion">
+<div id="accordion-past">
   <% events.each do |event| %>
     <div class="card">
       <div class="card-header">
@@ -6,7 +6,7 @@
           <%= event.title %> by <b><%= event.creator.fullname %></b>
         </a>
       </div>
-      <div id="collapse<%= event.id %>" class="collapse" data-parent="#accordion">
+      <div id="collapse<%= event.id %>" class="collapse" data-parent="#accordion-past">
         <div class="card-body">
           <p><b>Description:</b> <%= event.description %><br/>
           <b>Date:</b> <%= event.date %><br/>
@@ -14,10 +14,6 @@
 
           <div class='float-right pb-3'>
             <%= link_to 'Show', event, class: 'btn btn-secondary' %>
-
-            <% disabled_attend_class =  attend_events.include?(event) ? 'btn btn-secondary disabled' :  'btn btn-secondary' %>
-            <%= link_to 'Attend', attendances_path(user_id: session[:user_id], event_id: event.id), method: :post, class: disabled_attend_class %>
-
             <% disabled_class =  (event.user_id == session[:user_id]) ? 'btn btn-danger ' :  'btn btn-secondary disabled' %>
             <%= link_to 'Edit', edit_event_path(event), class: disabled_class %>
             <%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' }, class: disabled_class %>
