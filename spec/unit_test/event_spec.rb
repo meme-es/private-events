@@ -1,4 +1,4 @@
-require 'rails_helper'
+require_relative '../rails_helper'
 
 RSpec.describe Event, type: :model do
   let(:user1) { User.new(fullname: 'Juan Spencer', username: 'jspencer', email: 'spencer@gmail.com') }
