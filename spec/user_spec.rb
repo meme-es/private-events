@@ -38,10 +38,10 @@ RSpec.describe User, :type => :model do
     end
   end
 
-  context 'when a new user is created' do
+  context 'associatively, when a new user is create' do
     it 'could have one or many events' do
-      t = User.reflect_on_association(:events)
-      expect(t.macro).to eq(:has_many)
+      assc = User.reflect_on_association(:events)
+      expect(assc.macro).to eq(:has_many)
     end
   end
 

@@ -36,6 +36,23 @@ RSpec.describe Event, type: :model do
     end
   end
 
+  describe 'in terms of association, for every event created' do
+    it 'belongs to a user host' do
+      assc = Event.reflect_on_association(:creator)
+      expect(assc.macro).to eq :belongs_to
+    end
+
+    it 'could have many attendances' do
+      assc = Event.reflect_on_association(:attendances)
+      expect(assc.macro).to eq :has_many
+    end
+
+    it 'could have many attendees' do
+      assc = Event.reflect_on_association(:attendees)
+      expect(assc.macro).to eq :has_many
+    end
+  end
+
   it { is_expected.to validate_presence_of(:title) }
   it { is_expected.to validate_presence_of(:description) }
   it { is_expected.to validate_presence_of(:location) }
