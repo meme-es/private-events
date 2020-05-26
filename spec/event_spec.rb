@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
-  let(:user1) { User.new(fullname: 'Bertil T', username: 'bertil', email: 'bertil@gmail.com') }
+  let(:user1) { User.new(fullname: 'Juan Spencer', username: 'jspencer', email: 'spencer@gmail.com') }
 
   let(:event1) { Event.create(title: "David's Birthday", description: 'Comming to celebrate my birthday.', location: 'My home', date: 1.day.after, user_id: 1) }
 
@@ -17,7 +17,7 @@ RSpec.describe Event, type: :model do
       expect(event1).to_not be_valid
     end
 
-    it 'is invalid with description attribute more than 250 characters' do 
+    it 'is invalid with description attribute more than 250 characters' do
       user1.save
       event1.description = 'a' * 251
       expect(event1.valid?).to eq(false)
@@ -37,7 +37,7 @@ RSpec.describe Event, type: :model do
   end
 
   describe 'in terms of association, for every event created' do
-    it 'belongs to a user host' do
+    it 'belongs to an user host' do
       assc = Event.reflect_on_association(:creator)
       expect(assc.macro).to eq :belongs_to
     end
