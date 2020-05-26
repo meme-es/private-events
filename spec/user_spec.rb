@@ -38,6 +38,13 @@ RSpec.describe User, :type => :model do
     end
   end
 
+  context 'when a new user is created' do
+    it 'could have one or many events' do
+      t = User.reflect_on_association(:events)
+      expect(t.macro).to eq(:has_many)
+    end
+  end
+
   it { is_expected.to validate_presence_of(:fullname) }
   it { is_expected.to validate_presence_of(:email) }
   it { is_expected.to validate_presence_of(:username) }
