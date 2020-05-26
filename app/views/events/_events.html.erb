@@ -18,7 +18,11 @@
             <% disabled_attend_class =  attend_events.include?(event) ? 'btn btn-secondary disabled' :  'btn btn-secondary' %>
             <%= link_to 'Attend', attendances_path(user_id: session[:user_id], event_id: event.id), method: :post, class: disabled_attend_class %>
 
+<<<<<<< HEAD
             <% disabled_class =  (event.user_id == session[:user_id]) ? 'btn btn-danger ' :  'btn btn-secondary disabled' %>
+=======
+            <% disabled_class =  (event.user_id == session[:user_id]) ? 'btn btn-danger ' :  'btn btn-danger disabled' %>
+>>>>>>> 24762b80f5f942cee8ce934c9b60b5762837023d
             <%= link_to 'Edit', edit_event_path(event), class: disabled_class %>
             <%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' }, class: disabled_class %>
           </div>

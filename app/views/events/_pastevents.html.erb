@@ -14,7 +14,11 @@
 
           <div class='float-right pb-3'>
             <%= link_to 'Show', event, class: 'btn btn-secondary' %>
+<<<<<<< HEAD
             <% disabled_class =  (event.user_id == session[:user_id]) ? 'btn btn-danger ' :  'btn btn-secondary disabled' %>
+=======
+            <% disabled_class =  (event.user_id == session[:user_id]) ? 'btn btn-danger ' :  'btn btn-danger disabled' %>
+>>>>>>> 24762b80f5f942cee8ce934c9b60b5762837023d
             <%= link_to 'Edit', edit_event_path(event), class: disabled_class %>
             <%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' }, class: disabled_class %>
           </div>
