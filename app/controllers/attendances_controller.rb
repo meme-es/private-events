@@ -1,5 +1,4 @@
 class AttendancesController < ApplicationController
-
   def create
     @attendance = Attendance.new(event_id: params[:event_id], user_id: params[:user_id])
     @attendance.save

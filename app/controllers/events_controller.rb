@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :user_is_logged_in
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: %i[show edit update destroy]
 
   def user_is_logged_in
     redirect_to login_path unless session[:user_id]
@@ -25,8 +25,7 @@ class EventsController < ApplicationController
   end
 
   # GET /events/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /events
   # POST /events.json
