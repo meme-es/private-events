@@ -39,6 +39,19 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
+  # The RSpec testing framework
+  gem 'rspec-rails'
+
+  # The following gems aids with the nuts and bolts
+  # of interacting with the browser.
+  # gem 'webdrivers'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
+
+  # Adds support for Capybara system testing and selenium driver
+  gem 'capybara', '>= 2.15'
+  # Easy installation and use of chromedriver to run system tests with Chrome
+  gem 'shoulda-matchers', '~> 3.0', require: false
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
@@ -53,17 +66,6 @@ group :development do
 end
 
 group :test do
-# The RSpec testing framework
-  gem 'rspec-rails'
-
-  # The following gems aids with the nuts and bolts
-  # of interacting with the browser.
-  gem 'webdrivers'
-
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
-  # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'shoulda-matchers', '~> 3.0', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
