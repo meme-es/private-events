@@ -1,0 +1,16 @@
+<h2>All Events</h2>
+
+<% unless @events.empty? %>
+  <br>
+  <h5>Past Events</h5>
+  <%= render "pastevents", events: @events.past %>
+  <br>
+  <h5>Upcoming Events</h5>
+  <%= render "events", events: @events.upcoming, attend_events: @attend_events %>
+<% else %>
+  <p>There are no events yet, you can add some.</p>
+<% end %>
+
+<div class='pt-3'>
+  <%= link_to 'New Event', new_event_path, class: 'btn btn-success' %>
+</div>

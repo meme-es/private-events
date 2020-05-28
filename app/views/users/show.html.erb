@@ -1,0 +1,14 @@
+<h2>My Events</h2>
+<% unless @events.empty? %>
+  <br>
+  <h5>Past Events</h5>
+  <%= render "myevents", events: @events.past%>
+  <br>
+  <h5>Upcoming Events</h5>
+  <%= render "myevents", events: @events.upcoming%>
+<% else %>
+  <p>You have not created any event yet, add some.</p>
+<% end %>
+<div class='pt-3'>
+  <%= link_to 'New Event', new_event_path, class: 'btn btn-success' %>
+</div>
