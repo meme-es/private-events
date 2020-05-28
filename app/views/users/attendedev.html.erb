@@ -1,0 +1,24 @@
+<h2>Attending Events</h2>
+
+<% unless @events.empty? %>
+  <div id="accordion">
+    <% @events.each do |event| %>
+      <div class="card">
+        <div class="card-header">
+          <a class="collapsed card-link text-black-50" data-toggle="collapse" href="#collapse<%= event.id %>">
+            <%= event.title %> by <b><%= event.creator.fullname %></b>
+          </a>
+        </div>
+        <div id="collapse<%= event.id %>" class="collapse" data-parent="#accordion">
+          <div class="card-body">
+            <p><b>Description:</b> <%= event.description %><br/>
+            <b>Date:</b> <%= event.date %><br/>
+            <b>Location:</b> <%= event.location %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p>What's going on with you, you are not attending any event.</p>
+<% end %>
